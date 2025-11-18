@@ -76,26 +76,20 @@
 
 
             /////////////////COLOR CODING/////////////////////////////
-            const minThreshScale = d3.scaleLinear()
-                .domain([document.querySelector("#minThreshold").min, document.querySelector("#minThreshold").max])
-                .range();
-            const maxThreshScale = d3.scaleLinear()
-                .domain([document.querySelector("#maxThreshold").min, document.querySelector("#maxThreshold").max])
-                .range();
-
+            
             function draw(binCount,minThreshold,maxThreshold) {
                 ///////////////////////////////////////////////////////////
                 // Step 3 contour generator
 
                 const colors = d3.scaleLinear()
-                    .domain()
+                    .domain(d3.range(minThreshold, maxThreshold, (maxThreshold - minThreshold) / 7))
                     .range(["#0d1a50", "#3e5eba", "#2b83ba", "#abdda4", "#ffffbf", "#fdae61", "#d7191c"])
                     .interpolate(d3.interpolateHcl);
 
 
                 let contours = d3.contours()
                     .size([m, n])
-                    .thresholds()(values_density); // Using threshold
+                    .thresholds(d3.range(minThreshold, maxThreshold, (maxThreshold - minThreshold) / binCount))(values_density); // Using threshold
 
 
                 // Step 3 append contour to path (d)
