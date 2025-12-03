@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>D3 World Map</title>
+  <style>
+    body { margin: 0; background: #f8f8f8; }
+    svg { width: 100vw; height: 100vh; }
+    .land { fill: #69b3a2; stroke: #333; stroke-width: 0.5px; }
+    .boundary { fill: none; stroke: #222; stroke-width: 0.3px; }
+  </style>
+
+  <!-- D3.js -->
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <!-- TopoJSON parser -->
+  <script src="https://cdn.jsdelivr.net/npm/topojson@3"></script>
+</head>
+
+<body>
+   <svg id="map"></svg>
+
+  <!-- Your external script -->
+  <script src="js/map.js"></script>
+</body>
+</html>
